@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://mtua1mgmsr3t"]
+
+[ext_resource type="Script" uid="uid://cf6tf7pxw08vv" path="res://main.gd" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://begr4yoenfphd" path="res://xr_origin.tscn" id="2_h2yge"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8w0r3"]
+size = Vector3(5, 0.1, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_h4t55"]
+size = Vector3(5, 0.1, 5)
+
+[node name="main" type="Node3D" unique_id=1516920329]
+script = ExtResource("1_0xm2m")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=562418315]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1994222443]
+shape = SubResource("BoxShape3D_8w0r3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D" unique_id=612656646]
+mesh = SubResource("BoxMesh_h4t55")
+
+[node name="XROrigin3D" parent="." unique_id=1935294665 instance=ExtResource("2_h2yge")]
